@@ -1,17 +1,19 @@
-# CRUD SPRINGBOOT
+# CONTENEDOR CON MYSQL:5.7
 
 <img src="./img/img.jpg" alt="drawing" style="width:100%;"/>
 
-Ejemplo de un crud básico haciendo uso de spring boot y base de datos en memoria H2.
+Ejemplo practico de contenedor con MySQL 5.7
+
+## PUERTO EXPUESTO
+Por defecto el puerto es:
+
+`PORT: 3356`
 
 ## COMANDOS
-Ejecutamos el proyecto
+Ejecutar contenedor
 
-`mvn spring-boot:run`
-## BD H2
-Se usa la dependencia de H2 BD en memoria, Para no conectarnos a una BD.
-## RUTAS
-Ruta para consultar el contenido de los usuarios
-- http://localhost:PORT/users
-Ruta para entrar al modo grafico de h2-console e insertar en BD
-- http://localhost:PORT/H2-console
+`docker-compose up -d`
+
+## SALIDA DEL CONTENEDOR
+
+<img src="./img/img2.png" alt="drawing" style="width:100%;"/>
