@@ -1,26 +1,32 @@
-# indicamos la version del .yml
+# indicamos la version del docker compose
 version: "2.4"
 # indicamos que servicios tendra.
 services:
-# servicio de mysql
+  # indicamos el servicio de mysql
   mysql:
-# indicamos el nombre de nuestro contenedor
+    # indicamos la contruccion del contenedor
+    build:
+      # indicamos el contexto, que es al actual (.)
+      context: .
+      # indicamos el archivo dockerfile se llama (Dockerfile)
+      dockerfile: Dockerfile
+    # indicamos el nombre de nuestro contenedor
     container_name: mysql
-# indicamos la imagen de nuestro mysql
+    # indicamos la imagen de nuestro mysql
     image: mysql:5.7
-# indicamos que ante cualquier error se reinreinicie el servicio de mysql
+    # indicamos que ante cualquier error se reinreinicie el servicio de mysql
     restart: always
-# indicamos el volumen para la persistencia de datos de la BD
+    # indicamos el volumen para la persistencia de datos de la BD
     volumes:
-      - ./sql-data/db:/var/lib/mysql
-# indicamos el puerto  que se expondra en servicio de msql
+      - ./sql-data/db:/var/lib/mysql:rw
+    # indicamos el puerto  que se expondra en servicio de msql
     ports:
       - "3306:3306"
-# indicamos las variables de entorno del MySQL, Nosotros definimos los valores
+    # indicamos las variables de entorno del MySQL, Nosotros definimos los valores
     environment:
       MYSQL_DATABASE: 'databse_mysql'
       MYSQL_USER: 'luis'
       MYSQL_PASSWORD: '12345678'
-# estos valores son para el el usuario ROOT, Se pueden omitir
+      # estos valores son para el el usuario ROOT, Se pueden omitir
       MYSQL_ROOT_PASSWORD: '123456'
       MYSQL_ROOT_PASSWORD: '123456'
